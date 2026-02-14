@@ -1,0 +1,16 @@
+{
+  "name": "govt-jobs-wa-agent",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "node apps/api/dist/index.js",
+    "dev:api": "npm run build --workspace @govt-jobs/api && node apps/api/dist/index.js",
+    "migrate": "./scripts/migrate.sh",
+    "typecheck": "tsc -b --pretty false",
+    "test:shared": "npm run build --workspace @govt-jobs/shared && node --test packages/shared/test/eligibility.test.js"
+  }
+}
